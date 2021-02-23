@@ -1,0 +1,17 @@
+{
+  "name": "valery",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jean Pierre <stick-master666@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
