@@ -2,6 +2,11 @@
 import Layout from '@components/Layout/Layout';
 import '../style.css';
 
+//Performance
+export function reportWebVitals(metric) {
+    console.log(metric)
+}
+
 function MyApp({ Component, pageProps }) {
 
     return (

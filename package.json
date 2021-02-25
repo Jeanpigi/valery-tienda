@@ -5,9 +5,10 @@
   "author": "Jean Pierre <stick-master666@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "export": "next export"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.1.1",

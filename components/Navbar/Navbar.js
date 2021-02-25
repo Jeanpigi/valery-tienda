@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div className="header_social">
                     <ul>
                         <li>
-                            <Link href="https://www.instagram.com/valery_tienda1/">
+                            <Link href="https://www.instagram.com/valery_tienda1/" >
                                 <a target="_blank">
                                     <i className="fab fa-instagram" />
                                 </a>
@@ -31,7 +31,7 @@ const Navbar = () => {
                         </li>
 
                         <li>
-                            <Link href="https://www.facebook.com/paola.escalantesalas">
+                            <Link href="https://www.facebook.com/paola.escalantesalas" >
                                 <a target="_blank">
                                     <i className="fab fa-facebook" />
                                 </a>
