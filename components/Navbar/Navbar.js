@@ -1,46 +1,44 @@
 import React from 'react';
 import Link from 'next/link';
 
+const Navbar = () => (
+  <>
+    <header className="header">
+      <figure className="header_logo">
+        <Link href="/">
+          <img
+            src="https://i.ibb.co/7kqvpT2/logo.png"
+            alt="logo-Valery"
+            border="0"
+          />
+        </Link>
+      </figure>
+      <div className="header_about">
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </div>
+      <div className="header_social">
+        <div>
+          <Link href="https://www.instagram.com/valery_tienda1/">
+            <a target="_blank">
+              <i aria-hidden className="fab fa-instagram" />
+            </a>
+          </Link>
+        </div>
 
-const Navbar = () => {
-    return (
-        <>
-            <header className="header">
-                <figure className="header_logo">
-                    <Link href="/">
-                        <img
-                            src="https://i.ibb.co/7kqvpT2/logo.png"
-                            alt="logo-Valery"
-                            border="0"
-                        />
-                    </Link>
-                </figure>
-                <div className="header_about">
-                    <Link href="/about">
-                        <a>About</a>
-                    </Link>
-                </div>
-                <div className="header_social">
-                    <div>
-                        <Link href="https://www.instagram.com/valery_tienda1/" >
-                            <a target="_blank">
-                                <i aria-hidden className="fab fa-instagram" />
-                            </a>
-                        </Link>
-                    </div>
+        <div>
+          <Link href="https://www.facebook.com/paola.escalantesalas">
+            <a target="_blank">
+              <i aria-hidden className="fab fa-facebook" />
+            </a>
+          </Link>
+        </div>
+      </div>
+    </header>
 
-                    <div>
-                        <Link href="https://www.facebook.com/paola.escalantesalas" >
-                            <a target="_blank">
-                                <i aria-hidden className="fab fa-facebook" />
-                            </a>
-                        </Link>
-                    </div>
-                </div>
-            </header>
-
-            <style jsx>
-                {`
+    <style jsx>
+      {`
             .header {
                     display: flex;
                     justify-content: space-between;
@@ -85,9 +83,8 @@ const Navbar = () => {
                     width: 2rem;
                 }
             `}
-            </style>
-        </>
-    )
-}
+    </style>
+  </>
+);
 
 export default Navbar;

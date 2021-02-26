@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const Button = ({ children, onClick }) => {
-    return (
-        <>
-            <button onClick={onClick}>
-                {children}
-            </button>
-            <style jsx>
-                {`
+const Button = ({ children, onClick }) => (
+  <>
+    <button onClick={onClick} type="button">
+      {children}
+    </button>
+    <style jsx>
+      {`
                     button {
                         border: 0;
                         background: #B55BB8;
@@ -23,9 +22,8 @@ const Button = ({ children, onClick }) => {
                         opacity: .7;
                     }
                 `}
-            </style>
-        </>
-    )
-}
+    </style>
+  </>
+);
 
 export default Button;

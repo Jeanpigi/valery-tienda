@@ -1,23 +1,26 @@
 import React from 'react';
 // import Image from 'next/image';
 
-const Product = ({ product }) => {
-    return (
-        <>
-            <div className="product-item">
-                <img src={product.image} alt={product.title} />
-                <div className="product-item-info">
-                    <h2>
-                        {product.title}
-                        <span>
-                            $ {''} {product.price}
-                        </span>
-                    </h2>
-                    <p>{product.description}</p>
-                </div>
-            </div>
-            <style jsx>
-                {`
+const Product = ({ product }) => (
+  <>
+    <div className="product-item">
+      <img src={product.image} alt={product.title} />
+      <div className="product-item-info">
+        <h2>
+          {product.title}
+          <span>
+            $
+            {' '}
+
+            {' '}
+            {product.price}
+          </span>
+        </h2>
+        <p>{product.description}</p>
+      </div>
+    </div>
+    <style jsx>
+      {`
                 .product-item {
                     text-decoration: none;
                     box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
@@ -47,9 +50,8 @@ const Product = ({ product }) => {
                     object-fit: contain;
                 }
             `}
-            </style>
-        </>
-    )
-}
+    </style>
+  </>
+);
 
 export default Product;
