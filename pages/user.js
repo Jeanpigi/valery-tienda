@@ -19,21 +19,21 @@ const user = () => {
   }
 
   const handleSignOut = () => {
-    SignOut().then(() => {
-      console.log('Se ha cerrado la sesión');
-      router.push('/login');
-    }).catch((error) => {
-      console.log(`No se ha podido cerrar la sesión debido a ${error}`);
-    });
+    SignOut()
+      .then(() => {
+        console.log('Se ha cerrado la sesión');
+        router.push('/login');
+      })
+      .catch((error) => {
+        console.log(`No se ha podido cerrar la sesión debido a ${error}`);
+      });
   };
 
   return (
     <div className="user">
       <h1>Bienvenido a tu cuenta de usuario</h1>
       <p>{email}</p>
-      <Button onClick={handleSignOut}>
-        Cerrar Sesión
-      </Button>
+      <Button onClick={handleSignOut}>Cerrar Sesión</Button>
     </div>
   );
 };

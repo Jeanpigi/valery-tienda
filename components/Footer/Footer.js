@@ -18,7 +18,10 @@ function Footer() {
 
         <div className={styles.footer_copyright}>
           <p>© 2021 Valery Tienda | Todos los derechos reservados.</p>
-          <p>Teléfono (57) 3214537245. Dirección: Calle 13 #11-50, Florencia Caquetá Colombia.</p>
+          <p>
+            Teléfono (57) 3214537245. Dirección: Calle 13 #11-50, Florencia
+            Caquetá Colombia.
+          </p>
         </div>
       </div>
     </div>

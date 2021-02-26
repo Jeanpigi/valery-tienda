@@ -18,29 +18,28 @@ const Search = ({ search, searchInput, handleSearch }) => (
     </div>
     <style jsx>
       {`
-                .search {
-                    display: grid;
-                    grid-template-columns: 3.6fr 0.1fr;
-                    padding: 5rem 1rem 2rem 2rem;
-                }
+        .search {
+          display: grid;
+          grid-template-columns: 3.6fr 0.1fr;
+          padding: 5rem 1rem 2rem 2rem;
+        }
 
+        .search_input input {
+          padding: 1rem;
+          width: 100%;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
 
-                .search_input input {
-                    padding: 1rem;
-                    width: 100%;
-                    border-top-left-radius: 10px;
-                    border-bottom-left-radius: 10px;
-                }
-
-                .search_icon {
-                    display: grid;
-                    justify-items: center;
-                    align-items: center;
-                    background-color: #B55BB8;
-                    border-top-right-radius: 10px;
-                    border-bottom-right-radius: 10px;
-                }
-            `}
+        .search_icon {
+          display: grid;
+          justify-items: center;
+          align-items: center;
+          background-color: #b55bb8;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      `}
     </style>
   </>
 );

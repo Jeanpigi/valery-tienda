@@ -1,6 +1,4 @@
-import React, {
-  useState, useRef, useMemo, useCallback,
-} from 'react';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
 import fetch from 'isomorphic-unfetch';
 // components
 import Product from '@components/Product/Product';
@@ -26,14 +24,21 @@ const Home = ({ productList }) => {
   }, []);
 
   const filteredProducts = useMemo(
-    () => productList.filter((product) => product.title.toLowerCase().includes(search.toLowerCase())),
-    [productList, search],
+    () =>
+      productList.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase())
+      ),
+    [productList, search]
   );
 
   return (
     <>
       <div className="home">
-        <Search search={search} searchInput={searchInput} handleSearch={handleSearch} />
+        <Search
+          search={search}
+          searchInput={searchInput}
+          handleSearch={handleSearch}
+        />
         <div className="products">
           {filteredProducts.map((product) => (
             <Product product={product} key={product.id} />
@@ -42,13 +47,13 @@ const Home = ({ productList }) => {
       </div>
       <style jsx>
         {`
-                    .products {
-                        grid-template-columns: repeat(3, 1fr);
-                        grid-gap: 1.5rem;
-                        grid-row-gap: 1.5em;
-                        display: grid;
-                    }
-                `}
+          .products {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1.5rem;
+            grid-row-gap: 1.5em;
+            display: grid;
+          }
+        `}
       </style>
     </>
   );

@@ -39,50 +39,49 @@ const Navbar = () => (
 
     <style jsx>
       {`
-            .header {
-                    display: flex;
-                    justify-content: space-between;
-                    background: linear-gradient(to bottom,#B55BB8   10%, #F7F0EF 90%);
-                    border-bottom: 1px solid #f2f2f2;
-                }
+        .header {
+          display: flex;
+          justify-content: space-between;
+          background: linear-gradient(to bottom, #b55bb8 10%, #f7f0ef 90%);
+          border-bottom: 1px solid #f2f2f2;
+        }
 
-                .header_logo img {
-                    width: 15rem;
-                    cursor: pointer;
-                }
+        .header_logo img {
+          width: 15rem;
+          cursor: pointer;
+        }
 
-                .header a {
-                    font-size: 3rem;
-                    font-weight: 300;
-                    text-decoration: none;
-                }
+        .header a {
+          font-size: 3rem;
+          font-weight: 300;
+          text-decoration: none;
+        }
 
-                .header_about {
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    justify-items: center;
-                    width: 3rem;
-                    margin: 0 0 0 .5rem;
-                }
+        .header_about {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          justify-items: center;
+          width: 3rem;
+          margin: 0 0 0 0.5rem;
+        }
 
-                .header_social {
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                }
+        .header_social {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+        }
 
-                .header_social div {
-                    display: inline;
-                    margin: 2.5rem;
-                }
+        .header_social div {
+          display: inline;
+          margin: 2.5rem;
+        }
 
-
-                .header_social i {
-                    color: linear-gradient(to bottom,#B55BB8   10%, #F7F0EF 90%);;
-                    width: 2rem;
-                }
-            `}
+        .header_social i {
+          color: linear-gradient(to bottom, #b55bb8 10%, #f7f0ef 90%);
+          width: 2rem;
+        }
+      `}
     </style>
   </>
 );

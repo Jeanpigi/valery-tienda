@@ -14,12 +14,11 @@ const Map = () => {
   };
 
   return (
-    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY} region="colombia">
-      <GoogleMap
-        mapContainerStyle={mapStyle}
-        zoom={9}
-        center={center}
-      >
+    <LoadScript
+      googleMapsApiKey={process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY}
+      region="colombia"
+    >
+      <GoogleMap mapContainerStyle={mapStyle} zoom={9} center={center}>
         <Marker position={center} />
       </GoogleMap>
     </LoadScript>

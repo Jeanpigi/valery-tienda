@@ -17,32 +17,38 @@ const login = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    SignIn(email, password).then((result) => {
-      console.log(`has iniciado sesion ${result}`);
-      router.push('/user');
-    }).catch((error) => {
-      alert(error.message);
-    });
+    SignIn(email, password)
+      .then((result) => {
+        console.log(`has iniciado sesion ${result}`);
+        router.push('/user');
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   const handleSigInGoogle = (e) => {
     e.preventDefault();
 
-    SignInGoogle().then(() => {
-      router.push('/user');
-    }).catch((err) => {
-      alert(err.message);
-    });
+    SignInGoogle()
+      .then(() => {
+        router.push('/user');
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   const handleRegister = (e) => {
     e.preventDefault();
 
-    Register(email, password).then(() => {
-      router.push('/');
-    }).catch((error) => {
-      alert(error.message);
-    });
+    Register(email, password)
+      .then(() => {
+        router.push('/');
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
@@ -52,25 +58,37 @@ const login = () => {
         <form>
           <label htmlFor="email">
             <span>E-mail</span>
-            <input id="email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail" required autoComplete="email" />
+            <input
+              id="email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail"
+              required
+              autoComplete="email"
+            />
           </label>
 
           <label htmlFor="password">
             <span>Contraseña</span>
-            <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required autoComplete="on" />
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Contraseña"
+              required
+              autoComplete="on"
+            />
           </label>
 
           <Button onClick={handleSignIn}>Iniciar</Button>
 
-          <Button onClick={handleRegister}>
-            Crear cuenta
-          </Button>
+          <Button onClick={handleRegister}>Crear cuenta</Button>
         </form>
       </div>
       <div>
-        <Button onClick={handleSigInGoogle}>
-          Login with Google
-        </Button>
+        <Button onClick={handleSigInGoogle}>Login with Google</Button>
       </div>
     </div>
   );
