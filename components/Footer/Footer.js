@@ -7,8 +7,8 @@ function Footer() {
             <div className={styles.footer_container}>
                 <div className={styles.footer_container_column}>
                     <div>
-                        <h2>Nostros</h2>
-                        <h3>Conoce sobre más</h3>
+                        <h2>Conoce más sobre</h2>
+                        <h3>Nosotros</h3>
                     </div>
                     <div>
                         <h2>hecho</h2>

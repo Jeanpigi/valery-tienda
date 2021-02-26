@@ -19,6 +19,11 @@
     justify-items: center;
 }
 
+.footer_container_column div {
+    display: grid;
+    justify-items: center;
+}
+
 
 .footer_copyright {
     color: #F7F0EF;

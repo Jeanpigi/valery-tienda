@@ -1,11 +1,11 @@
 // import App from 'next/app'
 import Layout from '@components/Layout/Layout';
-import '../style.css';
+import '../public/style.css';
 
 //Performance
-export function reportWebVitals(metric) {
-    console.log(metric)
-}
+// export function reportWebVitals(metric) {
+//     console.log(metric)
+// }
 
 function MyApp({ Component, pageProps }) {
 
