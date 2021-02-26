@@ -3,17 +3,19 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-    apikey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID,
-    measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+    apiKey: "AIzaSyAnvAkc3NIwrkvBdUEv47iI40GDWUed720",
+    authDomain: "valery-store.firebaseapp.com",
+    projectId: "valery-store",
+    storageBucket: "valery-store.appspot.com",
+    messagingSenderId: "114379606182",
+    appId: "1:114379606182:web:3b13f4a7b187973e314c67",
+    measurementId: "G-E54KPBLE8E"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const dbFirebase = firebaseApp.firestore();
-const authFirebase = firebaseApp.auth();
+!firebase.apps.length && firebase.initializeApp(firebaseConfig);
 
-export { dbFirebase, authFirebase };
+const dbFirebase = firebase.firestore();
+const authFirebase = firebase.auth();
+const googleProvider = firebase.auth.GoogleAuthProvider;
+
+export { dbFirebase, authFirebase, googleProvider };

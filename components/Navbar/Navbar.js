@@ -21,23 +21,21 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="header_social">
-                    <ul>
-                        <li>
-                            <Link href="https://www.instagram.com/valery_tienda1/" >
-                                <a target="_blank">
-                                    <i className="fab fa-instagram" />
-                                </a>
-                            </Link>
-                        </li>
+                    <div>
+                        <Link href="https://www.instagram.com/valery_tienda1/" >
+                            <a target="_blank">
+                                <i aria-hidden className="fab fa-instagram" />
+                            </a>
+                        </Link>
+                    </div>
 
-                        <li>
-                            <Link href="https://www.facebook.com/paola.escalantesalas" >
-                                <a target="_blank">
-                                    <i className="fab fa-facebook" />
-                                </a>
-                            </Link>
-                        </li>
-                    </ul>
+                    <div>
+                        <Link href="https://www.facebook.com/paola.escalantesalas" >
+                            <a target="_blank">
+                                <i aria-hidden className="fab fa-facebook" />
+                            </a>
+                        </Link>
+                    </div>
                 </div>
             </header>
 
@@ -76,11 +74,7 @@ const Navbar = () => {
                     align-items: center;
                 }
 
-                .header_social ul {
-                    list-style: none;
-                }
-
-                .header_social li {
+                .header_social div {
                     display: inline;
                     margin: 2.5rem;
                 }
