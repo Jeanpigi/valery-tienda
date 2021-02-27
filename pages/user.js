@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Button from '@components/Button/Button';
-import { SignOut } from '../database/auth';
+import { SignOut } from '../lib/auth';
 // Auth
-import { authFirebase } from '../database/firebase';
+import { authFirebase } from '../lib/firebase';
 // Components
 
 const user = () => {
@@ -30,11 +30,21 @@ const user = () => {
   };
 
   return (
-    <div className="user">
-      <h1>Bienvenido a tu cuenta de usuario</h1>
-      <p>{email}</p>
-      <Button onClick={handleSignOut}>Cerrar Sesión</Button>
-    </div>
+    <>
+      <div className="user">
+        <h1>Bienvenido a tu cuenta de usuario</h1>
+        <p>{email}</p>
+        <Button onClick={handleSignOut}>Cerrar Sesión</Button>
+      </div>
+      <style jsx>
+        {`
+            .user {
+              display: grid;
+              align-items: center;
+            }
+        `}
+      </style>
+    </>
   );
 };
 

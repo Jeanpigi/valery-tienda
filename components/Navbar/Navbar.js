@@ -44,6 +44,7 @@ const Navbar = () => (
           justify-content: space-between;
           background: linear-gradient(to bottom, #b55bb8 10%, #f7f0ef 90%);
           border-bottom: 1px solid #f2f2f2;
+          height: 114px;
         }
 
         .header_logo img {
