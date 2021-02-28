@@ -26,5 +26,6 @@ module.exports = {
     'no-console': 'off',
     'no-alert': 'off',
     'import/prefer-default-export': 'off',
+    'prefer-destructuring': 'off',
   },
 };

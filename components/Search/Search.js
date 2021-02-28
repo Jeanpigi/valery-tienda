@@ -13,7 +13,7 @@ const Search = ({ search, searchInput, handleSearch }) => (
         />
       </div>
       <div className="search_icon">
-        <i className="fas fa-search" />
+        <i className="fas fa-search" aria-hidden/>
       </div>
     </div>
     <style jsx>

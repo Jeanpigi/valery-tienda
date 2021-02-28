@@ -9,21 +9,14 @@ const login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //     onAuthStateChange(setUser)
-  // }, [])
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
     SignIn(email, password)
       .then((result) => {
-        console.log('has iniciado sesion');
-        setUser(result);
-        console.log(user);
-        router.push('/user');
+        console.log(result);
+        router.push('/profile');
       })
       .catch((error) => {
         alert(error.message);
@@ -35,10 +28,10 @@ const login = () => {
 
     SignInGoogle()
       .then(() => {
-        router.push('/user');
+        router.push('/profile');
       })
-      .catch((err) => {
-        alert(err.message);
+      .catch((error) => {
+        alert(error.message);
       });
   };
 
