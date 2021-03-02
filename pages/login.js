@@ -81,13 +81,13 @@ const login = () => {
           </form>
         </div>
         <div className="button">
-          <Button onClick={handleSignIn}>Iniciar</Button>
+          <Button onClick={handleSignIn} type='button'>Iniciar</Button>
         </div>
         <div className="button">
-          <Button onClick={handleSigInGoogle}>Iniciar Sesión con Google</Button>
+          <Button onClick={handleSigInGoogle} type='button'>Iniciar Sesión con Google</Button>
         </div>
         <div className="button">
-          <Button onClick={handleRegister}>Crear cuenta</Button>
+          <Button onClick={handleRegister} type='button'>Crear cuenta</Button>
         </div>
       </div>
 

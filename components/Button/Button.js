@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Button = ({ children, onClick }) => (
+const Button = ({ children, onClick, type }) => (
   <>
-    <button onClick={onClick} type="button">
+    <button onClick={onClick} type={type}>
       {children}
     </button>
     <style jsx>
@@ -16,6 +16,7 @@ const Button = ({ children, onClick }) => (
           font-size: 1.4rem;
           cursor: pointer;
           transition: opacity 0.3s ease;
+          color:  #f7f0ef;
         }
 
         button:hover {

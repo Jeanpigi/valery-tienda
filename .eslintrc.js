@@ -27,5 +27,9 @@ module.exports = {
     'no-alert': 'off',
     'import/prefer-default-export': 'off',
     'prefer-destructuring': 'off',
+    'react/button-has-type': 'off',
+    'default-case': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'arrow-body-style': 'off',
   },
 };
