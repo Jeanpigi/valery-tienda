@@ -1,15 +1,16 @@
 import React from 'react';
+import Link  from 'next/link';
 import styles from './footer.module.css';
+
 
 function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.footer_container}>
         <div className={styles.footer_container_column}>
-          <div>
-            <h2>Conoce más sobre</h2>
-            <h3>Nosotros</h3>
-          </div>
+          <Link href="/about">
+            <a>Conoce más sobre Nosotros</a>
+          </Link>
           <div>
             <h2>hecho</h2>
             <p>Jean Pierre Giovanni Arenas Ortiz</p>

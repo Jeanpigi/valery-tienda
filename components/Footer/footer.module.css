@@ -3,6 +3,7 @@
   padding: 4em 0em;
   margin-top: 3em;
   border-top: 1px solid #f2f2f2;
+  color: #f2f2f2;
 }
 
 .footer_container {
@@ -23,8 +24,14 @@
   justify-items: center;
 }
 
+.footer_container_column a {
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
 .footer_copyright {
-  color: #f7f0ef;
   text-align: center;
   margin-top: 3.2rem;
   font-size: 0.8rem;

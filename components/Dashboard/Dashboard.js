@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Components
 import Button from '@components/Button/Button';
+// Db
+import { addProducts } from '@lib/db';
 
+const Dashboard = () => {
 
-const Dashboard = ({ name, description, price, handleInputChange, handleSubmit }) => {
+    // const initialStateProducts = {
+    //     title: "",
+    //     description: "",
+    //     price: 0
+    // }
+
+    // const [products, setProducts] = useState(() => initialStateProducts);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState(0);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        addProducts({
+            name,
+            description,
+            price,
+        });
+
+        setName('');
+        setDescription('');
+        setPrice('');
+    }
     return (
         <>
             <div className="profile_dashboard">
                 <form className="dashboard_form">
                     <label htmlFor="producto">
                         <span>Nombre del producto</span>
-                        <input id="producto" type="text" value={name} onChange={handleInputChange} />
+                        <input id="producto" type="text" value={name} onChange={({target}) => setName(target.value)} />
                     </label>
 
                     <label htmlFor="description">
@@ -21,12 +47,12 @@ const Dashboard = ({ name, description, price, handleInputChange, handleSubmit }
                             value={description}
                             rows="7"
                             cols="50"
-                            onChange={handleInputChange} />
+                            onChange={({target}) => setDescription(target.value)} />
                     </label>
 
                     <label htmlFor="precio">
                         <span>Precio del producto</span>
-                        <input id='precio' type="number" value={price} onChange={handleInputChange} />
+                        <input id='precio' type="number" value={price} onChange={({target}) => setPrice(target.value)} />
                     </label>
 
                     <Button onClick={handleSubmit} type='button'>Guardar Producto</Button>
