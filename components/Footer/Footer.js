@@ -11,10 +11,6 @@ function Footer() {
           <Link href="/about">
             <a>Conoce más sobre Nosotros</a>
           </Link>
-          <div>
-            <h2>hecho</h2>
-            <p>Jean Pierre Giovanni Arenas Ortiz</p>
-          </div>
         </div>
 
         <div className={styles.footer_copyright}>

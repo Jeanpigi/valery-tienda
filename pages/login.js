@@ -99,17 +99,19 @@ const login = () => {
           flex-direction: column;
           align-items: center;
           height: 100vh;
+          margin-top: 1rem;
       }
 
       .login_container {
-          background-color: #b55bb8;
-          color: #f2f2f2;
+          background-color: var(--background);
+          color: var(--color-white);
           width: 30rem;
           display: flex;
           flex-direction: column;
           border-radius: 0.5rem;
           border: 1px solid #672E8C;
           padding: 2rem;
+          margin-top: 2rem;
       }
 
       .login_container > form > label > span {

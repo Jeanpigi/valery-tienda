@@ -31,5 +31,8 @@ module.exports = {
     'default-case': 'off',
     'import/no-extraneous-dependencies': 'off',
     'arrow-body-style': 'off',
+    'no-shadow': 'off',
+    'prefer-const': 'off',
+    'jsx-a11y/alt-text': 'off',
   },
 };

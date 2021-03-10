@@ -1,21 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // Components
 import Button from '@components/Button/Button';
 // Db
-import { addProducts } from '@lib/db';
+import { addProducts, upLoadImage } from '@lib/db';
 
 const Dashboard = () => {
-
-    // const initialStateProducts = {
-    //     title: "",
-    //     description: "",
-    //     price: 0
-    // }
-
-    // const [products, setProducts] = useState(() => initialStateProducts);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
+    const [file, setFile] = useState(null);
+    const [url, setUrl] = useState('');
+
+    useEffect(() => {
+        if (file) {
+            let onProgress = () => {}
+
+            let onError = () => {}
+
+            let onComplete = () => {
+                console.log('on clomplete');
+                file.snapshot.ref.getDownloadURL().then(setUrl);
+            }
+
+            file.on('state_changed', onProgress, onError, onComplete)
+        }
+    }, [file])
+
+    const handleChange = (e) => {
+        const image = e.target.files[0];
+
+        const file = upLoadImage(image);
+
+        setFile(file);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,12 +41,14 @@ const Dashboard = () => {
             name,
             description,
             price,
+            url,
         });
 
         setName('');
         setDescription('');
         setPrice('');
-    }
+    };
+
     return (
         <>
             <div className="profile_dashboard">
@@ -55,15 +74,19 @@ const Dashboard = () => {
                         <input id='precio' type="number" value={price} onChange={({target}) => setPrice(target.value)} />
                     </label>
 
+                    <label htmlFor="image">
+                        <span>Subir Imagen</span>
+                        <input id="image" type="file" onChange={handleChange}  />
+                        {url && <img src={url} />}
+                    </label>
+
                     <Button onClick={handleSubmit} type='button'>Guardar Producto</Button>
                 </form>
             </div>
             <style jsx>
                 {`
                     .profile_dashboard {
-                        display: grid;
-                        justify-content: center;
-                        align-items: center;
+                        margin: 0 2rem;
                     }
 
                     .profile_dashboard > h1 {
@@ -73,8 +96,6 @@ const Dashboard = () => {
                     }
 
                     .dashboard_form  {
-                        display: grid;
-                        gap: 1rem;
                         background-color: #672E8C;
                         color: #F4ED42;
                         text-align: center;
@@ -87,6 +108,7 @@ const Dashboard = () => {
                     .dashboard_form > label {
                         display: flex;
                         flex-direction: column;
+                        margin-bottom: 3rem;
                     }
 
                     .dashboard_form > label > span {

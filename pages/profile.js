@@ -52,15 +52,25 @@ const profile = () => {
           <div className="button">
             <Button onClick={handleSignOut} type='button'>Cerrar Sesión</Button>
           </div>
-          <Dashboard  />
         </div>
+        <Dashboard />
       </div>
       <style jsx>
         {`
-            .profile {
-              display: grid;
+            .profile_container {
+              display: flex;
+              flex-direction: column;
+              margin: 1rem;
               align-items: center;
             }
+
+            .profile_user {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 1rem;
+            }
+
             .button {
               margin-top: 1rem;
             }

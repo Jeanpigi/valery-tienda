@@ -1,9 +1,7 @@
 .footer {
-  background: linear-gradient(to bottom, #f7f0ef 1%, #b55bb8 9%);
+  background: var(--background-footer);
   padding: 4em 0em;
   margin-top: 3em;
-  border-top: 1px solid #f2f2f2;
-  color: #f2f2f2;
 }
 
 .footer_container {
@@ -14,25 +12,23 @@
 
 .footer_container_column {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-items: center;
-}
-
-.footer_container_column div {
-  display: grid;
   justify-items: center;
 }
 
 .footer_container_column a {
   font-size: 1.7rem;
   font-weight: 300;
-  color: #f2f2f2;
+  color: var(--color-white);
   text-decoration: none;
 }
 
 .footer_copyright {
   text-align: center;
-  margin-top: 3.2rem;
+  color: var(--color-white);
   font-size: 0.8rem;
+}
+
+.footer_copyright p {
+  margin: 1.2rem 2rem;
 }

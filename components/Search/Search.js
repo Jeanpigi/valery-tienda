@@ -20,7 +20,7 @@ const Search = ({ search, searchInput, handleSearch }) => (
       {`
         .search {
           display: grid;
-          grid-template-columns: 3.6fr 0.1fr;
+          grid-template-columns: 3.6fr 0.4fr;
           padding: 5rem 1rem 2rem 2rem;
         }
 

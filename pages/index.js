@@ -48,10 +48,8 @@ const Home = ({ productList }) => {
       <style jsx>
         {`
           .products {
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 1.5rem;
-            grid-row-gap: 1.5em;
-            display: grid;
+            margin: 0 2rem;
+            border-radius: 5px;
           }
         `}
       </style>

@@ -28,7 +28,7 @@ const Navbar = () => (
         </div>
 
         <div>
-          <Link href="https://www.facebook.com/paola.escalantesalas">
+          <Link href="https://www.facebook.com/ValeryTienda01">
             <a target="_blank">
               <i aria-hidden className="fab fa-facebook" />
             </a>
@@ -41,10 +41,16 @@ const Navbar = () => (
       {`
         .header {
           display: flex;
-          justify-content: space-between;
-          background: linear-gradient(to bottom, #b55bb8 10%, #f7f0ef 90%);
-          border-bottom: 1px solid #f2f2f2;
-          height: 114px;
+          flex-direction: column;
+          justify-content: center;
+          background: var(--background-header);
+          height: 334px;
+          width: 100%;
+          min-width: 320px;
+        }
+
+        .header_logo, .header_about, .header_social {
+          align-self: center;
         }
 
         .header_logo img {
@@ -54,32 +60,20 @@ const Navbar = () => (
 
         .header a {
           font-size: 3rem;
-          font-weight: 300;
           text-decoration: none;
-        }
-
-        .header_about {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          justify-items: center;
-          width: 3rem;
-          margin: 0 0 0 0.5rem;
+          font-weight: bold;
         }
 
         .header_social {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
+          margin-top: 1rem;
         }
 
         .header_social div {
           display: inline;
-          margin: 2.5rem;
+          margin: 1.5rem;
         }
 
         .header_social i {
-          color: linear-gradient(to bottom, #b55bb8 10%, #f7f0ef 90%);
           width: 2rem;
         }
       `}
