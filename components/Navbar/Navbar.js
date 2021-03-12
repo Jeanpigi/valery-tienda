@@ -1,18 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => (
   <>
     <header className="header">
-      <figure className="header_logo">
-        <Link href="/">
-          <img
-            src="https://i.ibb.co/7kqvpT2/logo.png"
+      <Link href="/">
+        <figure className="header_logo">
+          <Image
+            src="/logo.png"
             alt="logo-Valery"
-            border="0"
+            width={150}
+            height={100}
           />
-        </Link>
-      </figure>
+        </figure>
+      </Link>
       <div className="header_about">
         <Link href="/about">
           <a>About</a>
@@ -49,13 +51,12 @@ const Navbar = () => (
           min-width: 320px;
         }
 
-        .header_logo, .header_about, .header_social {
-          align-self: center;
+        .header_logo {
+          cursor: pointer;
         }
 
-        .header_logo img {
-          width: 15rem;
-          cursor: pointer;
+        .header_logo, .header_about, .header_social {
+          align-self: center;
         }
 
         .header a {
@@ -77,7 +78,7 @@ const Navbar = () => (
           width: 2rem;
         }
 
-        @media (min-width: 768px) {
+        @media screen and (min-width: 768px) {
           .header {
             flex-direction: inherit;
             justify-content: space-between;

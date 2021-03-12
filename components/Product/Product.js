@@ -1,11 +1,16 @@
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 
-const Product = ({ product }) => (
+const Product = ({ product }) => {
+  const myLoader = () => {
+    return product.image;
+  }
+  return (
   <>
     <div className="product-item">
       <figure className="product-image">
-          <img src={product.image} alt={product.title} />
+        <Image loader={myLoader} src={product.image} alt={product.title} width={250}
+          height={250} />
       </figure>
       <div className="product-item-info">
         <h2>{product.title}</h2>
@@ -23,14 +28,9 @@ const Product = ({ product }) => (
           border-radius: 5px;
         }
         .product-image {
-          padding: 2rem;
-        }
-
-        .product-image img {
-          width: 100%;
-          height: 200px;
-          border-radius: 5px 5px 0 0;
-          object-fit: contain;
+          padding: 1rem;
+          display: grid;
+          justify-content: center;
         }
 
         .product-item-info {
@@ -43,6 +43,7 @@ const Product = ({ product }) => (
       `}
     </style>
   </>
-);
+  )
+};
 
 export default Product;

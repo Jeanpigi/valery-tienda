@@ -8,6 +8,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
           <script
+            defer
             src="https://kit.fontawesome.com/2268c379d5.js"
             crossOrigin="anonymous"
           />

@@ -51,7 +51,7 @@ const Home = ({ productList }) => {
             margin: 0 2rem;
           }
 
-          @media (min-width: 766px) {
+          @media screen and (min-width: 766px) {
             .products {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
@@ -59,7 +59,7 @@ const Home = ({ productList }) => {
             }
           }
 
-          @media (min-width: 1023px) {
+          @media screen and (min-width: 1023px) {
             .home {
               margin: 0 4rem;
             }
