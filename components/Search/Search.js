@@ -39,6 +39,18 @@ const Search = ({ search, searchInput, handleSearch }) => (
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
         }
+
+        @media (min-width: 766px) {
+          .search {
+            grid-template-columns: 3fr 0.2fr;
+          }
+        }
+
+        @media (min-width: 1023px) {
+          .search {
+            grid-template-columns: 3.6fr 0.1fr;
+          }
+        }
       `}
     </style>
   </>

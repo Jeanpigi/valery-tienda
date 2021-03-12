@@ -49,7 +49,24 @@ const Home = ({ productList }) => {
         {`
           .products {
             margin: 0 2rem;
-            border-radius: 5px;
+          }
+
+          @media (min-width: 766px) {
+            .products {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 1rem;
+            }
+          }
+
+          @media (min-width: 1023px) {
+            .home {
+              margin: 0 4rem;
+            }
+
+            .products {
+              grid-template-columns: repeat(3, 1fr);
+            }
           }
         `}
       </style>

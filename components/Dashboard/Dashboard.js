@@ -115,6 +115,12 @@ const Dashboard = () => {
                         padding-bottom: 1rem;
                         font-size: 1.6rem;
                     }
+
+                    @media (min-width: 766px) {
+                        .profile_dashboard {
+                            margin: 0 21rem;
+                        }
+                    }
             `}
             </style>
         </>

@@ -76,6 +76,13 @@ const Navbar = () => (
         .header_social i {
           width: 2rem;
         }
+
+        @media (min-width: 768px) {
+          .header {
+            flex-direction: inherit;
+            justify-content: space-between;
+          }
+        }
       `}
     </style>
   </>
