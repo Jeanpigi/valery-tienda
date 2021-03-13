@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 // Components
 import Button from '@components/Button/Button';
 // Db
-import { addProducts, upLoadImage } from '@lib/db';
+import { addProducts } from '@lib/db';
+import { storageFirebase  } from '@lib/firebase';
 
 const Dashboard = () => {
     const [name, setName] = useState('');
@@ -13,25 +14,22 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (file) {
-            let onProgress = () => {}
-
-            let onError = () => {}
-
-            let onComplete = () => {
+            const uploadTask = storageFirebase.ref().child(`images/${file.name}`).put(file);
+            uploadTask.on('state_changed', (snapshot) => {
+                let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log(`Upload is ${progress} % done`);
+            }, (error) => {
+                console.log(error);
+            }, () => {
                 console.log('on clomplete');
-                file.snapshot.ref.getDownloadURL().then(setUrl);
-            }
-
-            file.on('state_changed', onProgress, onError, onComplete)
+                uploadTask.snapshot.ref.getDownloadURL().then(setUrl);
+            })
         }
     }, [file])
 
     const handleChange = (e) => {
         const image = e.target.files[0];
-
-        const file = upLoadImage(image);
-
-        setFile(file);
+        setFile(image);
     };
 
     const handleSubmit = (e) => {
@@ -47,6 +45,8 @@ const Dashboard = () => {
         setName('');
         setDescription('');
         setPrice('');
+        setFile(null);
+        setUrl('');
     };
 
     return (
@@ -74,11 +74,11 @@ const Dashboard = () => {
                         <input id='precio' type="number" value={price} onChange={({target}) => setPrice(target.value)} />
                     </label>
 
-                    <label htmlFor="image">
+                    <div>
                         <span>Subir Imagen</span>
-                        <input id="image" type="file" onChange={handleChange}  />
-                        {url && <img src={url} />}
-                    </label>
+                        <input type="file" onChange={handleChange}  />
+                        {url && <img src={url} width="10px" height="10px" />}
+                    </div>
 
                     <Button onClick={handleSubmit} type='button'>Guardar Producto</Button>
                 </form>

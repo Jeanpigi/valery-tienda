@@ -3,17 +3,17 @@ import Image from 'next/image';
 
 const Product = ({ product }) => {
   const myLoader = () => {
-    return product.image;
+    return product.url;
   }
   return (
   <>
     <div className="product-item">
       <figure className="product-image">
-        <Image loader={myLoader} src={product.image} alt={product.title} width={250}
+        <Image loader={myLoader} src={product.url} alt={product.name} width={250}
           height={250} />
       </figure>
       <div className="product-item-info">
-        <h2>{product.title}</h2>
+        <h2>{product.name}</h2>
         <span>Precio: ${product.price}</span>
         <p>{product.description}</p>
       </div>

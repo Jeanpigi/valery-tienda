@@ -1,11 +1,12 @@
 import React, { useState, useRef, useMemo, useCallback } from 'react';
-import fetch from 'isomorphic-unfetch';
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
+// Db
+import { getAllProducts  } from '@lib/db';
 
 export const getServerSideProps = async () => {
-  const response = await fetch('https://fakestoreapi.com/products');
+  const response = await getAllProducts();
   const data = await response.json();
 
   return {
