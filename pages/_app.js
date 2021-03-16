@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '@components/Layout/Layout';
 import '../public/style.css';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Component {...pageProps} />

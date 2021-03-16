@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // Components
 import Button from '@components/Button/Button';
+import ProgressBar from '@components/ProgressBar/ProgressBar'
 // Db
 import { addProducts } from '@lib/db';
 import { storageFirebase  } from '@lib/firebase';
@@ -11,12 +12,13 @@ const Dashboard = () => {
     const [price, setPrice] = useState(0);
     const [file, setFile] = useState(null);
     const [url, setUrl] = useState('');
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         if (file) {
             const uploadTask = storageFirebase.ref().child(`images/${file.name}`).put(file);
             uploadTask.on('state_changed', (snapshot) => {
-                let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
                 console.log(`Upload is ${progress} % done`);
             }, (error) => {
                 console.log(error);
@@ -45,8 +47,8 @@ const Dashboard = () => {
         setName('');
         setDescription('');
         setPrice('');
-        setFile(null);
         setUrl('');
+        setFile(null);
     };
 
     return (
@@ -74,10 +76,11 @@ const Dashboard = () => {
                         <input id='precio' type="number" value={price} onChange={({target}) => setPrice(target.value)} />
                     </label>
 
-                    <div>
+                    <div className="dashboard_upload_img">
                         <span>Subir Imagen</span>
                         <input type="file" onChange={handleChange}  />
-                        {url && <img src={url} width="10px" height="10px" />}
+                        <ProgressBar progress={progress} />
+                        {url && <img src={url} width="100px" height="100px" />}
                     </div>
 
                     <Button onClick={handleSubmit} type='button'>Guardar Producto</Button>
@@ -114,6 +117,14 @@ const Dashboard = () => {
                     .dashboard_form > label > span {
                         padding-bottom: 1rem;
                         font-size: 1.6rem;
+                    }
+
+                    .dashboard_upload_img {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+                        height: 30rem;
+                        align-items: center;
                     }
 
                     @media screen and (min-width: 766px) {

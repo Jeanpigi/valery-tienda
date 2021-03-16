@@ -9,4 +9,10 @@ module.exports = {
   //   loader: 'imgix',
   //   path: 'https://fakestoreapi.com/products',
   // },
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+    externalResolver: true,
+  }
 };

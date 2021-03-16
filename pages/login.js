@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 // Components
 import Button from '@components/Button/Button';
+// Auth
 import { SignInGoogle, SignIn, Register } from '@lib/auth';
 
 const login = () => {
-  const router = useRouter();
 
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
     SignIn(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         router.push('/profile');
       })
       .catch((error) => {

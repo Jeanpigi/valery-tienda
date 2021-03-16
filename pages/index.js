@@ -1,12 +1,11 @@
 import React, { useState, useRef, useMemo, useCallback } from 'react';
+import fetch from 'isomorphic-unfetch';
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
-// Db
-import { getAllProducts  } from '@lib/db';
 
 export const getServerSideProps = async () => {
-  const response = await getAllProducts();
+  const response = await fetch('http://localhost:3000/api/products');
   const data = await response.json();
 
   return {
@@ -17,8 +16,10 @@ export const getServerSideProps = async () => {
 };
 
 const Home = ({ productList }) => {
+
   const [search, setSearch] = useState('');
   const searchInput = useRef(null);
+
 
   const handleSearch = useCallback(() => {
     setSearch(searchInput.current.value);
@@ -27,7 +28,7 @@ const Home = ({ productList }) => {
   const filteredProducts = useMemo(
     () =>
       productList.filter((product) =>
-        product.title.toLowerCase().includes(search.toLowerCase())
+        product.name.toLowerCase().includes(search.toLowerCase())
       ),
     [productList, search]
   );

@@ -1,44 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 // Components
 import Dashboard from '@components/Dashboard/Dashboard';
 import Button from '@components/Button/Button';
 // Auth
 import { SignOut } from '@lib/auth';
-import { authFirebase } from '@lib/firebase';
-
+// user
+import useUser from '@hooks/useUser';
 
 
 const profile = () => {
+  const user = useUser();
   const router = useRouter();
-  const [user, setUser] = useState(null);
-
-  const onAuthStateChanged = () => {
-    authFirebase.onAuthStateChanged((result) => {
-      if (result) {
-        const { email } = result;
-        setUser(email);
-      } else {
-        router.replace('/login');
-      }
-    })
-  }
-
-  useEffect(() => {
-    onAuthStateChanged();
-  }, [])
 
   const handleSignOut = () => {
     SignOut()
       .then(() => {
-        console.log('Se ha cerrado la sesión');
         router.push('/login');
       })
       .catch((error) => {
         console.log(`No se ha podido cerrar la sesión debido a ${error}`);
       });
   };
-
 
   return (
     <>
@@ -47,7 +30,7 @@ const profile = () => {
           <h1>Bienvenido a tu cuenta de usuario</h1>
           <div className="profile_user">
             <i className="far fa-user" aria-hidden />
-            <p> {user}</p>
+            <p>{user}</p>
           </div>
           <div className="button">
             <Button onClick={handleSignOut} type='button'>Cerrar Sesión</Button>
@@ -63,14 +46,12 @@ const profile = () => {
               margin: 1rem;
               align-items: center;
             }
-
             .profile_user {
               display: flex;
               justify-content: space-between;
               align-items: center;
               gap: 1rem;
             }
-
             .button {
               margin-top: 1rem;
             }
