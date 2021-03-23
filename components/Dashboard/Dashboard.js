@@ -47,8 +47,8 @@ const Dashboard = () => {
         setName('');
         setDescription('');
         setPrice('');
-        setUrl('');
         setFile(null);
+        setUrl('');
     };
 
     return (

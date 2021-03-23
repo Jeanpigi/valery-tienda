@@ -17,25 +17,24 @@ const Navbar = () => (
       </Link>
       <div className="header_about">
         <Link href="/about">
-          <a>About</a>
+          <a>
+            <i className="fas fa-search-location" />
+          </a>
         </Link>
       </div>
-      <div className="header_social">
-        <div>
-          <Link href="https://www.instagram.com/valery_tienda1/">
-            <a target="_blank">
-              <i aria-hidden className="fab fa-instagram" />
-            </a>
-          </Link>
-        </div>
-
-        <div>
-          <Link href="https://www.facebook.com/ValeryTienda01">
-            <a target="_blank">
-              <i aria-hidden className="fab fa-facebook" />
-            </a>
-          </Link>
-        </div>
+      <div className="header_info">
+        <Link href='/info'>
+          <a>
+            <i className="fas fa-info" />
+          </a>
+        </Link>
+      </div>
+      <div className='header_login'>
+        <Link href='/login'>
+          <a>
+            <i className="fas fa-user" />
+          </a>
+        </Link>
       </div>
     </header>
 
@@ -45,6 +44,7 @@ const Navbar = () => (
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           background: var(--background-header);
           height: 334px;
           width: 100%;
@@ -55,27 +55,10 @@ const Navbar = () => (
           cursor: pointer;
         }
 
-        .header_logo, .header_about, .header_social {
-          align-self: center;
-        }
-
         .header a {
           font-size: 3rem;
           text-decoration: none;
           font-weight: bold;
-        }
-
-        .header_social {
-          margin-top: 1rem;
-        }
-
-        .header_social div {
-          display: inline;
-          margin: 1.5rem;
-        }
-
-        .header_social i {
-          width: 2rem;
         }
 
         @media screen and (min-width: 768px) {

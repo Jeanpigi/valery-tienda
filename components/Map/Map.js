@@ -15,7 +15,7 @@ const Map = () => {
 
   return (
     <LoadScript
-      googleMapsApiKey={process.env.NEXT_PUBLIC_APP_KEY}
+      googleMapsApiKey={process.env.NEXT_PUBLIC_FIREBASE_APP_KEY}
       region="colombia"
     >
       <GoogleMap mapContainerStyle={mapStyle} zoom={9} center={center}>

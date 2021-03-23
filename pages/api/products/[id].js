@@ -1,4 +1,4 @@
-import { dbFirestore } from '@lib/firebase';
+import { dbFirestore } from '@lib/admin';
 
 const getProduct = async (req, res) => {
     const { query } = req;
