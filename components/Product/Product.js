@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+// Utils
+import formatter from '@utils/formatter';
 
 const Product = ({ product }) => {
   const myLoader = () => {
@@ -15,7 +17,7 @@ const Product = ({ product }) => {
       </figure>
       <div className="product-item-info">
         <h2>{product.name}</h2>
-        <span>Precio: ${product.price}</span>
+        <span>Precio: ${formatter.format(product.price)}</span>
         <p>{product.description}</p>
       </div>
     </div>

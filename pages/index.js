@@ -2,7 +2,7 @@ import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react'
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
-// Db
+// db
 import { getAllProducts } from '@lib/db';
 
 
@@ -12,7 +12,7 @@ const Home = () => {
   const searchInput = useRef(null);
 
   useEffect(() => {
-    getAllProducts().then(setProductList)
+    getAllProducts().then(setProductList);
   }, [])
 
 
