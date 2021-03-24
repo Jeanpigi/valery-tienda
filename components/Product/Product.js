@@ -6,11 +6,6 @@ const Product = ({ product }) => {
     return product.url;
   }
 
-  const formatter = new Intl.NumberFormat("en-CO", {
-    style: "currency",
-    currency: "COP",
-  });
-
   return (
   <>
     <div className="product-item">
@@ -20,7 +15,7 @@ const Product = ({ product }) => {
       </figure>
       <div className="product-item-info">
         <h2>{product.name}</h2>
-        <span>Precio: $ {formatter.format(product.price)}</span>
+        <span>Precio: ${product.price}</span>
         <p>{product.description}</p>
       </div>
     </div>

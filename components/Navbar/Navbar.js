@@ -64,7 +64,7 @@ const Navbar = () => (
         @media screen and (min-width: 768px) {
           .header {
             flex-direction: inherit;
-            justify-content: space-between;
+            justify-content: space-around;
           }
         }
       `}
