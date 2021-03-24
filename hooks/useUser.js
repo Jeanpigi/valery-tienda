@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from '@lib/firebase';
 import { useRouter  } from 'next/router';
-import { onAuthStateChanged  } from '@lib/auth';
+
 
 export const USER_STATES = {
     NOT_LOGGED: null,
     NOT_KNOWN: undefined,
 }
 
-const useUser = () => {
+export default function useUser () {
     const [user, setUser] = useState(USER_STATES.NOT_KNOWN);
     const router = useRouter();
 
@@ -22,4 +23,3 @@ const useUser = () => {
     return user
 }
 
-export default useUser;

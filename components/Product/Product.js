@@ -1,15 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+// Utils
+import formatter from '@utils/formatter';
 
 const Product = ({ product }) => {
   const myLoader = () => {
     return product.url;
   }
-
-  const formatter = new Intl.NumberFormat("en-CO", {
-    style: "currency",
-    currency: "COP",
-  });
 
   return (
   <>
