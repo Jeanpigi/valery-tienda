@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from '@lib/firebase';
+import { onAuthStateChanged } from '@lib/auth';
 import { useRouter  } from 'next/router';
 
 

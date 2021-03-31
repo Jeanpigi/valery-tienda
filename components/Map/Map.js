@@ -4,7 +4,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Map = () => {
   const mapStyle = {
-    height: '50vh',
+    height: '100vh',
     width: '100%',
   };
 
@@ -18,7 +18,7 @@ const Map = () => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_FIREBASE_APP_KEY}
       region="colombia"
     >
-      <GoogleMap mapContainerStyle={mapStyle} zoom={9} center={center}>
+      <GoogleMap mapContainerStyle={mapStyle} zoom={16} center={center}>
         <Marker position={center} />
       </GoogleMap>
     </LoadScript>

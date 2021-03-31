@@ -1,19 +1,24 @@
-import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
+import fetch from 'isomorphic-unfetch';
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
-// db
-import { getAllProducts } from '@lib/db';
+
+export const getServerSideProps = async () => {
+  const response = await fetch('http://localhost:3000/api/products');
+  const data = await response.json();
+
+  return {
+    props: {
+      productList: data,
+    },
+  };
+};
 
 
-const Home = () => {
-  const [productList, setProductList] = useState([]);
+const Home = ({ productList }) => {
   const [search, setSearch] = useState('');
   const searchInput = useRef(null);
-
-  useEffect(() => {
-    getAllProducts().then(setProductList);
-  }, [])
 
 
   const handleSearch = useCallback(() => {

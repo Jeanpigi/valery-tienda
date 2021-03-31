@@ -61,6 +61,12 @@ const Navbar = () => (
           font-weight: bold;
         }
 
+        .header a:hover {
+          color: var( --color-white);
+          transition: .8s;
+        }
+
+
         @media screen and (min-width: 768px) {
           .header {
             flex-direction: inherit;

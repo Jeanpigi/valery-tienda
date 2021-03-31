@@ -24,15 +24,15 @@ const Product = ({ product }) => {
     <style jsx>
       {`
         .product-item {
-          box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
-            1px 3px 8px rgba(39, 44, 49, 0.03);
+          box-shadow: 10px 10px 15px rgba(39, 44, 49, 0.06),
+            -10px 10px 15px rgba(39, 44, 49, 0.03);
           margin: 0 0 2rem 0;
           border: none;
-          border-radius: 5px;
+          border-radius: 20px;
         }
         .product-image {
           padding: 1rem;
-          display: grid;
+          display: flex;
           justify-content: center;
         }
 
