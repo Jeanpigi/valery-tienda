@@ -1,5 +1,5 @@
 // db
-import { getAllProducts  } from '@lib/db';
+import { getAllProducts  } from '@firebase/db';
 
 const getProducts =  (req, res) => {
     getAllProducts().then((results) => {

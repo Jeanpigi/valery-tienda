@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Button from '@components/Button/Button';
 import ProgressBar from '@components/ProgressBar/ProgressBar'
 // Db
-import { addProducts } from '@lib/db';
-import { storageFirebase  } from '@lib/firebase';
+import { addProducts } from '@firebase/db';
+import { storageFirebase  } from '@firebase/firebase';
 
 const Dashboard = () => {
     const [name, setName] = useState('');

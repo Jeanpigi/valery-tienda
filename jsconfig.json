@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
-      "@lib/*": ["lib/*"],
+      "@firebase/*": ["firebase/*"],
       "@hooks/*": ["hooks/*"],
       "@utils/*": ["utils/*"]
     }

@@ -34,5 +34,6 @@ module.exports = {
     'no-shadow': 'off',
     'prefer-const': 'off',
     'jsx-a11y/alt-text': 'off',
+    'consistent-return': 'off'
   },
 };

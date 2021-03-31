@@ -3,10 +3,13 @@ import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react'
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
 // db
-import { getAllProducts } from '@lib/db';
+import { getAllProducts } from '@firebase/db';
+
+import {useUser} from '@firebase/useUser'
 
 
 const Home = () => {
+  const { user, logout } = useUser();
   const [productList, setProductList] = useState([]);
   const [search, setSearch] = useState('');
   const searchInput = useRef(null);
@@ -28,6 +31,15 @@ const Home = () => {
     [productList, search]
   );
 
+  if(user) {
+    return (
+      <>
+        <h1>{user.name}</h1>
+        <h3>{user.email}</h3>
+        <button onClick={() => logout()}>Log out</button>
+      </>
+    )
+  }
   return (
     <>
       <div className="home">
