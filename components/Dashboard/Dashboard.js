@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 // Components
 import Button from '@components/Button/Button';
 import ProgressBar from '@components/ProgressBar/ProgressBar'
+// Firebase
+import firebase from 'firebase/app';
+import 'firebase/storage';
 // Db
-import { addProducts } from '@lib/db';
-import { storageFirebase  } from '@lib/firebase';
+import { addProducts } from '@firebase/db';
 
 const Dashboard = () => {
     const [name, setName] = useState('');
@@ -16,10 +18,9 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (file) {
-            const uploadTask = storageFirebase.ref().child(`images/${file.name}`).put(file);
+            const uploadTask = firebase.storage().ref().child(`images/${file.name}`).put(file);
             uploadTask.on('state_changed', (snapshot) => {
                 setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                console.log(`Upload is ${progress} % done`);
             }, (error) => {
                 console.log(error);
             }, () => {

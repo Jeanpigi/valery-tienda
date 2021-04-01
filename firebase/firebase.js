@@ -13,15 +13,13 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+const initFirebase = () => {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  console.log('Firebase was successfuly init');
 }
 
-const dbFirestore = firebase.firestore();
-const authFirebase = firebase.auth();
-const storageFirebase = firebase.storage();
-const googleProvider = firebase.auth.GoogleAuthProvider;
 
-
-export { dbFirestore, authFirebase, storageFirebase, googleProvider };
+export default initFirebase;
 

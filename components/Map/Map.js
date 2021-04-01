@@ -18,7 +18,7 @@ const Map = () => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_FIREBASE_APP_KEY}
       region="colombia"
     >
-      <GoogleMap mapContainerStyle={mapStyle} zoom={16} center={center}>
+      <GoogleMap mapContainerStyle={mapStyle} zoom={17} center={center}>
         <Marker position={center} />
       </GoogleMap>
     </LoadScript>
