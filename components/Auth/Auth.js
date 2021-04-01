@@ -24,8 +24,8 @@ const firbaseAuthConfig = {
         signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
             const userData = mapUserData(user)
             setUserCookie(userData)
-        }
-    }
+        },
+    },
 }
 
 const FirebaseAuth = () => {

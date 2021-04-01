@@ -5,8 +5,8 @@ const ProgressBar = ({ progress }) => {
         <>
             {
                 progress > 0 &&
-                <div className="progressBar" style={{ width: `${progress}%` }}>
-                    <span>Carga de imágen: {progress}%</span>
+                <div className="progressBar">
+                    <progress value={progress} max='100' style={{ width: '100%' }}>Carga de imágen: {progress}%</progress>
                 </div>
             }
         </>
