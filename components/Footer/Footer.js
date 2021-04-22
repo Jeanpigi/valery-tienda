@@ -15,7 +15,7 @@ const Footer = () => {
           <div className='footer_social'>
             <div>
               <Link href="https://www.instagram.com/valery_tienda1/">
-                <a target="_blank">
+                <a target="_blank" rel="noopener">
                   <i aria-hidden className="fab fa-instagram" />
                 </a>
               </Link>
@@ -23,7 +23,7 @@ const Footer = () => {
 
             <div>
               <Link href="https://www.facebook.com/ValeryTienda01">
-                <a target="_blank">
+                <a target="_blank" rel="noopener">
                   <i aria-hidden className="fab fa-facebook" />
                 </a>
               </Link>

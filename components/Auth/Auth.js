@@ -21,7 +21,7 @@ const firbaseAuthConfig = {
     signInSuccessUrl: '/',
     credentialHelper: 'none',
     callbacks: {
-        signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
+        signInSuccessWithAuthResult: async ({ user }) => {
             const userData = mapUserData(user)
             setUserCookie(userData)
         },

@@ -78,8 +78,10 @@ const Dashboard = () => {
                     </label>
 
                     <div className="dashboard_upload_img">
-                        <span>Subir Imagen</span>
-                        <input type="file" onChange={handleChange}  />
+                        <label htmlFor="url">
+                            <span>Subir Imagen</span>
+                            <input id="url" type="file" onChange={handleChange} />
+                        </label>
                         <ProgressBar progress={progress} />
                         {url && <img src={url} width="100px" height="100px" />}
                     </div>

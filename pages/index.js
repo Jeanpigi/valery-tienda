@@ -3,9 +3,10 @@ import fetch from 'isomorphic-unfetch';
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
-import Profile from '@components/Profile/Profile'
+import Profile from '@components/Profile/Profile';
+import Info from '@components/Info/Info';
 // User
-import {useUser} from '@firebase/useUser';
+import { useUser } from '@firebase/useUser';
 
 export const getServerSideProps = async () => {
   const response = await fetch('http://localhost:3000/api/products');
@@ -18,7 +19,7 @@ export const getServerSideProps = async () => {
   }
 }
 
-const Home = ({ productList  }) => {
+const Home = ({ productList }) => {
   const { user, logout } = useUser();
   const [search, setSearch] = useState('');
   const searchInput = useRef(null);
@@ -35,26 +36,39 @@ const Home = ({ productList  }) => {
     [productList, search]
   );
 
-  if(user) {
-    return (
-      <>
-        <Profile user={user} logout={logout} />
-      </>
-    )
-  }
   return (
     <>
       <div className="home">
-        <Search
-          search={search}
-          searchInput={searchInput}
-          handleSearch={handleSearch}
-        />
-        <div className="products">
-          {filteredProducts.map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
-        </div>
+        {
+          user ? (
+            <>
+            <Profile user={user} logout={logout} />
+            <Search
+                search={search}
+                searchInput={searchInput}
+                handleSearch={handleSearch}
+              />
+              <div className="products">
+                {filteredProducts.map((product) => (
+                  <Product product={product} key={product.id} />
+                ))}
+              </div>
+              </>
+          ) :
+            <>
+              <Info />
+              <Search
+                search={search}
+                searchInput={searchInput}
+                handleSearch={handleSearch}
+              />
+              <div className="products">
+                {filteredProducts.map((product) => (
+                  <Product product={product} key={product.id} />
+                ))}
+              </div>
+            </>
+        }
       </div>
       <style jsx>
         {`

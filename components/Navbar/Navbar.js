@@ -15,24 +15,17 @@ const Navbar = () => (
           />
         </figure>
       </Link>
-      <div className="header_about">
-        <Link href="/about">
+      <div className="header_location">
+        <Link href="/location">
           <a>
-            <i className="fas fa-search-location" />
-          </a>
-        </Link>
-      </div>
-      <div className="header_info">
-        <Link href='/info'>
-          <a>
-            <i className="fas fa-info" />
+            <i aria-hidden className="fas fa-search-location" />
           </a>
         </Link>
       </div>
       <div className='header_login'>
         <Link href='/login'>
           <a>
-            <i className="fas fa-user" />
+            <i aria-hidden className="fas fa-user" />
           </a>
         </Link>
       </div>
