@@ -9,7 +9,7 @@ import Info from '@components/Info/Info';
 import { useUser } from '@firebase/useUser';
 
 export const getServerSideProps = async () => {
-  const API = 'http://localhost:3000/api/products' || 'https://valery-krq2xlxjc-jeanpierregiovanni.vercel.app/api/products';
+  const API = 'http://localhost:3000/api/products' || 'https://https://valery-jeanpierregiovanni.vercel.app/api/products';
   const response = await fetch(API);
   const data = await response.json();
 
