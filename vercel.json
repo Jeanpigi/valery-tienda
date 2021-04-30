@@ -1,6 +1,6 @@
 {
     "funtions": {
-        "api/*.js": {
+        "/api/*.js": {
         }
     }
 }

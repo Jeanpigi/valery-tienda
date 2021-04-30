@@ -9,9 +9,15 @@ import Welcome from '@components/Welcome/Welcome';
 import { useUser } from '@firebase/useUser';
 
 export const getServerSideProps = async () => {
-  const API = '/api/products';
+  const API = 'http://localhost:3000/api/products' || '/api/products';
   const response = await fetch(API);
   const data = await response.json();
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
@@ -40,36 +46,18 @@ const Home = ({ productList }) => {
   return (
     <>
       <div className="home">
-        {
-          user ? (
-            <>
-            <Profile user={user} logout={logout} />
-            <Search
-                search={search}
-                searchInput={searchInput}
-                handleSearch={handleSearch}
-              />
-              <div className="products">
-                {filteredProducts.map((product) => (
-                  <Product product={product} key={product.id} />
-                ))}
-              </div>
-              </>
-          ) :
-            <>
-              <Welcome />
-              <Search
-                search={search}
-                searchInput={searchInput}
-                handleSearch={handleSearch}
-              />
-              <div className="products">
-                {filteredProducts.map((product) => (
-                  <Product product={product} key={product.id} />
-                ))}
-              </div>
-            </>
-        }
+        {user ? <Profile user={user} logout={logout} /> : <Welcome />}
+
+        <Search
+          search={search}
+          searchInput={searchInput}
+          handleSearch={handleSearch}
+        />
+        <div className="products">
+          {filteredProducts.map((product) => (
+            <Product product={product} key={product.id} />
+          ))}
+        </div>
       </div>
       <style jsx>
         {`

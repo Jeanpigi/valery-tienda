@@ -24,6 +24,13 @@ export const getAllProducts = async () => {
     })
 }
 
+export const  getAllProductsRealTime = () => {
+    firebase.firestore().collection('products').onSnapshot((doc) => {
+        const data = doc.data();
+        return data
+    })
+}
+
 export const deleteProduct = async (id) => {
     await firebase.firestore().collection('products').doc(id).delete().then(() => {
         console.log('Document successfully deleted!');
