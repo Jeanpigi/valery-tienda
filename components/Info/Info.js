@@ -48,12 +48,18 @@ const Info = () => {
                     margin: 2rem;
                 }
 
+                .info_content {
+                    display: flex;
+                    gap: 1rem;
+                    flex-direction: column;
+                }
+
                 .info_card {
                     box-shadow: 10px 10px 15px rgba(39, 44, 49, 0.06),
                         -10px 10px 15px rgba(39, 44, 49, 0.03);
-                    margin: 0 0 2rem 0;
                     border: none;
                     border-radius: 20px;
+                    padding: 1rem;
                 }
 
                 .info_content h1 {
@@ -64,6 +70,11 @@ const Info = () => {
                     display: flex;
                     justify-content: center;
                     gap: 1rem;
+                }
+
+                .info_social {
+                    display: flex;
+                    justify-content:center;
                 }
 
                 .info_social a {
