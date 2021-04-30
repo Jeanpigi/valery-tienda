@@ -4,12 +4,12 @@ import fetch from 'isomorphic-unfetch';
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
 import Profile from '@components/Profile/Profile';
-import Info from '@components/Info/Info';
+import Welcome from '@components/Welcome/Welcome';
 // User
 import { useUser } from '@firebase/useUser';
 
 export const getServerSideProps = async () => {
-  const API = 'http://localhost:3000/api/products' || '/api/products';
+  const API = '/api/products';
   const response = await fetch(API);
   const data = await response.json();
 
@@ -57,7 +57,7 @@ const Home = ({ productList }) => {
               </>
           ) :
             <>
-              <Info />
+              <Welcome />
               <Search
                 search={search}
                 searchInput={searchInput}

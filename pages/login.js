@@ -1,9 +1,13 @@
 import React from 'react';
+import Head from 'next/head';
 import FirebaseAuth from '@components/Auth/Auth'
 
 const login = () => {
   return (
     <>
+    <Head>
+      <title>Inicio de Sesión</title>
+    </Head>
       <div className="login">
         <h1>Inicio de Sesión</h1>
         <div className="login_container">
@@ -14,23 +18,18 @@ const login = () => {
       <style jsx>{`
 
         .login {
-            background-color: white;
             display: flex;
             flex-direction: column;
+            padding: 1rem;
+            justify-content: center;
             align-items: center;
-            margin-top: 1rem;
+            height: 56vh;
         }
 
         .login_container {
-            background-color: var(--background);
-            color: var(--color-white);
-            width: 30rem;
             display: flex;
-            flex-direction: column;
-            border-radius: 0.5rem;
-            border: 1px solid #672E8C;
-            padding: 2rem;
-            margin-top: 2rem;
+            align-items: center;
+            gap: 1rem;
         }
       `}
       </style>

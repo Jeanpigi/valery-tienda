@@ -20,6 +20,5 @@ const initFirebase = () => {
   console.log('Firebase was successfuly init');
 }
 
-
 export default initFirebase;
 

@@ -22,10 +22,10 @@ const Navbar = () => (
           </a>
         </Link>
       </div>
-      <div className='header_login'>
-        <Link href='/login'>
+      <div className='header_disclaimer'>
+        <Link href='/disclaimer'>
           <a>
-            <i aria-hidden className="fas fa-user" />
+            <i aria-hidden className="fas fa-info-circle" />
           </a>
         </Link>
       </div>
@@ -39,8 +39,6 @@ const Navbar = () => (
           justify-content: center;
           align-items: center;
           background: var(--background-header);
-          height: 334px;
-          width: 100%;
           min-width: 320px;
         }
 

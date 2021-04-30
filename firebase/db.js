@@ -4,9 +4,9 @@ import 'firebase/firestore'
 // FireStore
 export const addProducts = async (products) => {
     await firebase.firestore().collection('products').doc().set(products).then(() => {
-        console.log('Document successfully written!');
+        alert('Data was successfully sent to cloud firestore!');
     }).catch((error) => {
-        console.log(error);
+        alert(error);
     })
 };
 
@@ -27,13 +27,13 @@ export const getAllProducts = async () => {
 export const deleteProduct = async (id) => {
     await firebase.firestore().collection('products').doc(id).delete().then(() => {
         console.log('Document successfully deleted!');
-    }).catch(error => console.log(error));
+    }).catch(error => alert(error));
 };
 
 export const updateProduct = async (id, dato) => {
     await firebase.firestore().collection('products').doc(id).update(dato).then(() => {
         console.log('Document successfully updated!');
     }).catch(error => {
-        console.log(error);
+        alert(error);
     })
 };
