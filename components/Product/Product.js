@@ -18,6 +18,8 @@ const Product = ({ product }) => {
     return product.url;
   }
 
+  const whatsapp = `https://api.whatsapp.com/send?phone=${process.env.NEXT_PUBLIC_NUMBER_WHATSAPP}`
+
   return (
   <>
     <div className="product-item">
@@ -37,7 +39,7 @@ const Product = ({ product }) => {
       
       :
           <div className="product-whatsapp">
-            <Link href="https://api.whatsapp.com/send?phone=3185274636">
+            <Link href={whatsapp}>
               <a target="_blank" rel="noopener">
                 <i className="fab fa-whatsapp" aria-hidden />
               </a>
@@ -84,6 +86,7 @@ const Product = ({ product }) => {
         .product-whatsapp  a {
             color: var(--color-valery);
             font-size: 3.6rem;
+            text-decoraton: none;
         }
 
       `}
