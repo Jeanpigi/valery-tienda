@@ -24,10 +24,10 @@ export const getAllProducts = async () => {
     })
 }
 
-export const  getAllProductsRealTime = () => {
-    firebase.firestore().collection('products').onSnapshot((doc) => {
+export const  getAllProductsRealTime = async () => {
+    return await firebase.firestore().collection('products').onSnapshot((doc) => {
         const data = doc.data();
-        return data
+        return data;
     })
 }
 

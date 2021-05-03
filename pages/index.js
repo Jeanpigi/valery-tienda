@@ -1,5 +1,5 @@
-import React, { useState, useRef, useMemo, useCallback } from 'react';
-import fetch from 'isomorphic-unfetch';
+import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
+import { getAllProducts } from '@firebase/db';
 // components
 import Product from '@components/Product/Product';
 import Search from '@components/Search/Search';
@@ -8,28 +8,16 @@ import Welcome from '@components/Welcome/Welcome';
 // User
 import { useUser } from '@firebase/useUser';
 
-export const getServerSideProps = async () => {
-  const API = 'http://localhost:3000/api/products' || '/api/products';
-  const response = await fetch(API);
-  const data = await response.json();
 
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: {
-      productList: data,
-    },
-  }
-}
-
-const Home = ({ productList }) => {
+const Home = () => {
   const { user, logout } = useUser();
+  const [productList, setProductList] = useState([]);
   const [search, setSearch] = useState('');
   const searchInput = useRef(null);
+
+  useEffect(() => {
+    getAllProducts().then(setProductList);
+  }, [])
 
   const handleSearch = useCallback(() => {
     setSearch(searchInput.current.value);

@@ -10,6 +10,7 @@ const Search = ({ search, searchInput, handleSearch }) => (
           value={search}
           ref={searchInput}
           onChange={handleSearch}
+          placeholder="buscador de productos"
         />
       </div>
       <div className="search_icon">
