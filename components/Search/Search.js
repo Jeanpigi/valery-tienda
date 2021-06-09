@@ -22,14 +22,16 @@ const Search = ({ search, searchInput, handleSearch }) => (
         .search {
           display: grid;
           grid-template-columns: 3.6fr 0.4fr;
-          padding: 5rem 1rem 2rem 2rem;
+          padding: 3rem 1rem 5rem 2rem;
         }
 
         .search_input input {
           padding: 1rem;
           width: 100%;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-radius: 4px;
+          border: 2px solid var(--color-secundary);
+          outline: none;
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
         }
 
         .search_icon {

@@ -23,7 +23,8 @@ const Welcome = () => {
 
                 .welcome_content h1 {
                     text-align: center;
-                    font-size: 2rem;
+                    font-size: clamp(1.5rem, 2.5vw, 2rem);
+                    color: var(--color-valery);
                 }
 
                 .welcome_content p {

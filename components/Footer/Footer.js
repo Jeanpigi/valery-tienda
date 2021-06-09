@@ -56,6 +56,7 @@ const Footer = () => {
 
         .footer_container a, p {
           color: var(--color-white);
+          font-size: clamp(1.2rem, 2.5vw, 1.7rem);
         }
 
         .footer_social a {

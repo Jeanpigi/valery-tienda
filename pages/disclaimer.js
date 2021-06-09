@@ -11,9 +11,9 @@ const disclaimer = () => {
         </Head>
         <div className="disclaimer">
             <div className="disclaimer_card">
-                <h2>Disclaimer</h2>
+                <h2 className="disclaimer_card_title">Disclaimer</h2>
                 <span>Lamentablemente en Valery Store no contamos con pagos con tarjeta de crédito, sin embargo continuamos mejorando el servicio. Actualmente ofrecemos uan forma de compra mediante WhatsApp, Solo tienes que escoger el producto que te interesé y te pondras en contacto con el vendedor por medio del siguiente icono:
-                        </span>
+                </span>
                 <div className="disclaimer_whatsapp">
                         <Link href={whatsapp}>
                         <a target="_blank" rel="noopener">
@@ -25,7 +25,9 @@ const disclaimer = () => {
         </div>
             <style jsx>{`
                 .disclaimer {
-                    padding: 3rem;
+                    display: grid;
+                    justify-content: center;
+                    margin-top: 2rem;
                 }
 
                 .disclaimer_card {
@@ -33,9 +35,50 @@ const disclaimer = () => {
                         -10px 10px 15px rgba(39, 44, 49, 0.03);
                     border: none;
                     border-radius: 20px;
-                    padding: 1rem;
+                    width: 600px;
+                    height: 400px;
+                    padding: 6rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+
+                    transition: transform 500ms ease;
                 }
-                .disclaimer_whatsapp a {
+
+                .disclaimer_card:hover {
+                    transform: scale(1.05);
+                }
+
+                .disclaimer_card_title {
+                    font-size: clamp(2.6rem, 2.5vw, 3.6rem);
+                    font-weight: bold;
+                    text-align: center;
+                    position: relative;
+                }
+
+                .disclaimer_card_title::after {
+                    content: "";
+                    position: absolute;
+                    height: 4px;
+                    width: calc(100% + 2rem);
+                    left: calc(2rem * -1);
+                    bottom: 0;
+                    background: var(--color-secundary);
+                    transform: scaleX(0);
+
+                    transition:  transform 500ms ease;
+                }
+
+                .disclaimer_card:hover, .disclaimer_card_title::after {
+                    transform: scaleX(1);
+                }
+
+                .disclaimer_card span {
+                    font-size: clamp(1.4rem, 2.5vw, 2rem);
+                    font-weight: 300;
+                }
+
+                .disclaimer_whatsapp {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -43,8 +86,15 @@ const disclaimer = () => {
 
                 .disclaimer_whatsapp a {
                     color: var(--color-valery);
-                    font-size: 3.6rem;
+                    font-size: clamp(2.5rem, 2.5vw, 3.6rem);
                     text-decoraton: none;
+
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                .disclarimer_whatsapp a:hover, .disclaimer_whatsapp a:focus {
+                    transform: translateY(-5px);
+                    color: black;
                 }
             `}</style>
         </>

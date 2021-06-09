@@ -8,6 +8,7 @@
   --background-footer: linear-gradient(to bottom, #f7f0ef 1%, #b55bb8 9%);
   --color-white:#f2f2f2;
   --background: #b55bb8;
+  --color-secundary: #B156C4;
 }
 
 * {
@@ -19,22 +20,4 @@
 html {
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
-}
-
-h1 {
-  font-size: 2rem;
-  color: var(--color-valery);
-}
-
-h2,
-h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-p,
-span {
-  font-size: 1.4rem;
-  font-weight: 300;
 }
