@@ -38,8 +38,7 @@ const Navbar = () => (
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background: var(--background-header);
-          min-width: 320px;
+          background: var(--color-primary);
           gap: 1rem;
         }
 
@@ -48,23 +47,19 @@ const Navbar = () => (
         }
 
         .header_location, .header_disclaimer {
-          border: 1px solid var(--color-valery);
-          border-radius: 50%;
           padding: 1rem;
           cursor: pointer;
-          background: var(--color-white);
           font-size: clamp(2rem, 2.5vw, 2.5rem);
-          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
         }
 
         .header a {
           text-decoration: none;
           font-weight: bold;
-          color: black;
+          color: var(--color-five);
         }
 
         .header a:hover {
-          color: var(--color-secundary);
+          color: var(--color-terciario);
           transition: .8s;
         }
 

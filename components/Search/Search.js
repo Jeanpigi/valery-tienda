@@ -29,7 +29,7 @@ const Search = ({ search, searchInput, handleSearch }) => (
           padding: 1rem;
           width: 100%;
           border-radius: 4px;
-          border: 2px solid var(--color-secundary);
+          border: 2px solid var(--color-four);
           outline: none;
           box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
         }
@@ -38,7 +38,7 @@ const Search = ({ search, searchInput, handleSearch }) => (
           display: grid;
           justify-items: center;
           align-items: center;
-          background-color: #b55bb8;
+          background-color: var(--color-four);
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
         }

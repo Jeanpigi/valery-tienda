@@ -53,29 +53,14 @@ const disclaimer = () => {
                     font-size: clamp(2.6rem, 2.5vw, 3.6rem);
                     font-weight: bold;
                     text-align: center;
-                    position: relative;
+                    color: var(--color-secundary);
                 }
 
-                .disclaimer_card_title::after {
-                    content: "";
-                    position: absolute;
-                    height: 4px;
-                    width: calc(100% + 2rem);
-                    left: calc(2rem * -1);
-                    bottom: 0;
-                    background: var(--color-secundary);
-                    transform: scaleX(0);
-
-                    transition:  transform 500ms ease;
-                }
-
-                .disclaimer_card:hover, .disclaimer_card_title::after {
-                    transform: scaleX(1);
-                }
 
                 .disclaimer_card span {
                     font-size: clamp(1.4rem, 2.5vw, 2rem);
                     font-weight: 300;
+                    text-align: justify;
                 }
 
                 .disclaimer_whatsapp {
@@ -85,16 +70,16 @@ const disclaimer = () => {
                 }
 
                 .disclaimer_whatsapp a {
-                    color: var(--color-valery);
+                    color: var(--color-primary);
                     font-size: clamp(2.5rem, 2.5vw, 3.6rem);
                     text-decoraton: none;
 
                     transition: transform 0.4s ease-in-out;
                 }
 
-                .disclarimer_whatsapp a:hover, .disclaimer_whatsapp a:focus {
+                .disclaimer_whatsapp a:hover, .disclaimer_whatsapp a:focus {
                     transform: translateY(-5px);
-                    color: black;
+                    color: var(--color-secundary);
                 }
             `}</style>
         </>

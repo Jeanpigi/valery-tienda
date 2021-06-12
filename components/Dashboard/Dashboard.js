@@ -102,12 +102,12 @@ const Dashboard = () => {
                     }
 
                     .dashboard_form  {
-                        background-color: #672E8C;
-                        color: #F4ED42;
+                        background: var(--color-primary);
+                        color: var(--color-white);
                         text-align: center;
                         height: fit-content;
                         border-radius: .5rem;
-                        border: 0.1rem solid #672E8C;
+                        border: 0.1rem solid var(--color-four);
                         padding: 2rem;
                     }
 

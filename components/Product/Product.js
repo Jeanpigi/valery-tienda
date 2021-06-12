@@ -57,6 +57,7 @@ const Product = ({ product }) => {
           border-radius: 20px;
           padding: 1rem;
           border: 1px solid var(--color-valery);
+          color: var(--color-four);
 
           transition: transform 500ms ease;
         }
@@ -114,7 +115,7 @@ const Product = ({ product }) => {
         }
 
         .product-whatsapp  a {
-            color: var(--color-secundary);
+            color: var(--color-terciario);
             font-size: clamp(1.4rem, 2.5vw, 3.6rem);
             text-decoraton: none;
 
@@ -123,7 +124,7 @@ const Product = ({ product }) => {
 
         .product-whatsapp a:hover, .product-whatsapp a:focus {
             transform: translateY(-5px);
-            color: black;
+            color: var(--color-secundary);
         }
 
       `}

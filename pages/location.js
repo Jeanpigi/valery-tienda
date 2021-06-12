@@ -21,14 +21,14 @@ const location = () => (
 
       .location h1 {
         font-size: clamp(1.5rem, 2.5vw, 2rem);
-        color: var(--color-valery);
+        color: var(--color-primary);
         text-align: center;
       }
 
       .location_card {
         width: 310px;
         box-shadow: 10px 10px 15px rgba(39, 44, 49, 0.06), -10px 10px 15px rgba(39, 44, 49, 0.03);
-        border: 1px solid var(--color-valery);
+        border: 1px solid var(--color-primary);
       }
 
       @media screen and (min-width: 768px) {

@@ -9,14 +9,14 @@ const Button = ({ children, onClick, type }) => (
       {`
         button {
           border: 0;
-          background: #b55bb8;
+          background: var(--color-four);
           border-radius: 9999px;
           font-weight: 800;
           padding: 8px 24px;
           font-size: 1.4rem;
           cursor: pointer;
           transition: opacity 0.3s ease;
-          color:  #f7f0ef;
+          color:  var(--color-white);
         }
 
         button:hover {

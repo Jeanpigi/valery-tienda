@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
       <style jsx>{`
         .footer {
-          background: var(--background-footer);
+          background: var(--color-primary);
           padding: 4em 0em;
           margin-top: 3em;
         }
@@ -55,7 +55,8 @@ const Footer = () => {
         }
 
         .footer_container a, p {
-          color: var(--color-white);
+          color: var(--color-five);
+          font-weight: 400;
           font-size: clamp(1.2rem, 2.5vw, 1.7rem);
         }
 
