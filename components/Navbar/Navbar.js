@@ -5,70 +5,83 @@ import Image from 'next/image';
 const Navbar = () => (
   <>
     <header className="header">
-      <Link href="/">
-        <figure className="header_logo">
-          <Image
-            src="/logo.png"
-            alt="logo-Valery"
-            width={150}
-            height={100}
-          />
-        </figure>
-      </Link>
-      <div className="header_location">
-        <Link href="/location">
-          <a>
-            <i aria-hidden className="fas fa-search-location" />
-          </a>
+      <nav className="header_navbar">
+        <Link href="/">
+          <figure className="header_logo">
+            <Image
+              src="/logo.png"
+              alt="logo-Valery"
+              width={130}
+              height={100}
+            />
+          </figure>
         </Link>
-      </div>
-      <div className='header_disclaimer'>
-        <Link href='/disclaimer'>
-          <a>
-            <i aria-hidden className="fas fa-info-circle" />
-          </a>
-        </Link>
-      </div>
+        <ul>
+          <Link href="/location">
+            <a>
+              <i aria-hidden className="fas fa-search-location" />
+            </a>
+          </Link>
+
+          <Link href='/disclaimer'>
+            <a>
+              <i aria-hidden className="fas fa-info-circle" />
+            </a>
+          </Link>
+        </ul>
+      </nav>
     </header>
 
     <style jsx>
       {`
         .header {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
           background: var(--color-primary);
-          gap: 1rem;
+          height: 130px;
+        }
+
+        .header_navbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 10px 0 0 80px;
+
+          animation: 2s navbar 0.5s ease-in-out;
+        }
+
+        @keyframes navbar {
+            0% {
+                transform: translateY(-200px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .header_logo {
           cursor: pointer;
         }
 
-        .header_location, .header_disclaimer {
-          padding: 1rem;
+        .header_navbar ul {
+          display: flex;
+          justify-content: space-evenly;
+          list-style: none;
+          padding: 0;
+          width: 450px;
           cursor: pointer;
           font-size: clamp(2rem, 2.5vw, 2.5rem);
         }
 
-        .header a {
+        .header_navbar a {
           text-decoration: none;
           font-weight: bold;
           color: var(--color-five);
         }
 
-        .header a:hover {
+        .header_navbar a:hover {
           color: var(--color-terciario);
           transition: .8s;
-        }
-
-
-        @media screen and (min-width: 768px) {
-          .header {
-            flex-direction: inherit;
-            justify-content: space-around;
-          }
         }
       `}
     </style>
