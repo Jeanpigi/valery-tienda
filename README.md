@@ -77,7 +77,7 @@ Please make sure to update tests as appropriate.
 
 # Authors
 
-- **Jean Pierre Giovanni Arenas Ortiz**
+- **Jean Pierre**
 
 # License
 
