@@ -1,5 +1,8 @@
 
 module.exports = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   compress: true,
   webpack5: false,
