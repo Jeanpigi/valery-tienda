@@ -1,14 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
 
 :root {
   /* Colores */
   --color-primary: #d86aff;
   --color-secundary: #ab3ed8;
-  --color-terciario:  #7f00b2;
+  --color-terciario: #7f00b2;
   --color-four: #650099;
   --color-five: #4b0081;
-  --color-white:#f2f2f2;
-  
+  --color-white: #f2f2f2;
+  --color-valery: #ab3ed8;
+  --color-bg: #faf7ff;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(100, 0, 153, 0.08);
+  --shadow-md: 0 4px 24px rgba(100, 0, 153, 0.10);
+  --shadow-lg: 0 12px 40px rgba(100, 0, 153, 0.18);
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
 }
 
 * {
@@ -20,4 +31,14 @@
 html {
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-five);
+}
+
+.main {
+  min-height: calc(100vh - 80px - 200px);
+  padding-bottom: 2rem;
 }

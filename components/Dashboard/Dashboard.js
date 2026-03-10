@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // Components
 import Button from '@components/Button/Button';
-import ProgressBar from '@components/ProgressBar/ProgressBar'
-// Firebase
-import firebase from 'firebase/app';
-import 'firebase/storage';
+import ProgressBar from '@components/ProgressBar/ProgressBar';
+// Firebase Storage modular
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import app from '@firebase/firebase';
 // Db
 import { addProducts } from '@firebase/db';
 
@@ -18,17 +18,24 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (file) {
-            const uploadTask = firebase.storage().ref().child(`images/${file.name}`).put(file);
-            uploadTask.on('state_changed', (snapshot) => {
-                setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-            }, (error) => {
-                console.log(error);
-            }, () => {
-                console.log('on clomplete');
-                uploadTask.snapshot.ref.getDownloadURL().then(setUrl);
-            })
+            const storage = getStorage(app);
+            const storageRef = ref(storage, `images/${file.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on(
+                'state_changed',
+                (snapshot) => {
+                    setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                },
+                (error) => {
+                    console.error(error);
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then(setUrl);
+                }
+            );
         }
-    }, [file])
+    }, [file]);
 
     const handleChange = (e) => {
         const image = e.target.files[0];
@@ -83,7 +90,7 @@ const Dashboard = () => {
                             <input id="url" type="file" onChange={handleChange} />
                         </label>
                         <ProgressBar progress={progress} />
-                        {url && <img src={url} width="100px" height="100px" />}
+                        {url && <img src={url} width="100px" height="100px" alt="Vista previa" />}
                     </div>
 
                     <Button onClick={handleSubmit} type='button'>Guardar Producto</Button>
@@ -93,12 +100,6 @@ const Dashboard = () => {
                 {`
                     .profile_dashboard {
                         margin: 0 2rem;
-                    }
-
-                    .profile_dashboard > h1 {
-                        font-weight: 500;
-                        margin-bottom: 2rem;
-                        text-align: center;
                     }
 
                     .dashboard_form  {
@@ -138,7 +139,7 @@ const Dashboard = () => {
             `}
             </style>
         </>
-    )
+    );
 };
 
 export default Dashboard;

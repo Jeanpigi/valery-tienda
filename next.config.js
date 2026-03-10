@@ -5,7 +5,16 @@ module.exports = {
   },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   compress: true,
-  webpack5: false,
+  turbopack: {
+    resolveAlias: {
+      'react-dom/client': 'react-dom',
+    },
+  },
+  webpack(config) {
+    // Alias para builds de producción (next build usa webpack, no turbopack)
+    config.resolve.alias['react-dom/client'] = 'react-dom';
+    return config;
+  },
   async headers() {
     return [
       {

@@ -1,46 +1,42 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    doc,
+    deleteDoc,
+    updateDoc,
+} from 'firebase/firestore';
+import app from './firebase';
 
-// FireStore
+const db = getFirestore(app);
+
 export const addProducts = async (products) => {
-    await firebase.firestore().collection('products').doc().set(products).then(() => {
-        alert('Data was successfully sent to cloud firestore!');
-    }).catch((error) => {
-        alert(error);
-    })
+    try {
+        await addDoc(collection(db, 'products'), products);
+        alert('Producto guardado exitosamente.');
+    } catch (error) {
+        alert(error.message);
+    }
 };
 
 export const getAllProducts = async () => {
-    return await firebase.firestore().collection('products').get().then(({ docs }) => {
-        return docs.map((doc) => {
-            const data = doc.data()
-            const id = doc.id
-
-            return {
-                ...data,
-                id,
-            }
-        })
-    })
-}
-
-export const  getAllProductsRealTime = async () => {
-    return await firebase.firestore().collection('products').onSnapshot((doc) => {
-        const data = doc.data();
-        return data;
-    })
-}
+    const snapshot = await getDocs(collection(db, 'products'));
+    return snapshot.docs.map((d) => ({ ...d.data(), id: d.id }));
+};
 
 export const deleteProduct = async (id) => {
-    await firebase.firestore().collection('products').doc(id).delete().then(() => {
-        console.log('Document successfully deleted!');
-    }).catch(error => alert(error));
+    try {
+        await deleteDoc(doc(db, 'products', id));
+    } catch (error) {
+        alert(error.message);
+    }
 };
 
 export const updateProduct = async (id, dato) => {
-    await firebase.firestore().collection('products').doc(id).update(dato).then(() => {
-        console.log('Document successfully updated!');
-    }).catch(error => {
-        alert(error);
-    })
+    try {
+        await updateDoc(doc(db, 'products', id), dato);
+    } catch (error) {
+        alert(error.message);
+    }
 };

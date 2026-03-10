@@ -24,109 +24,112 @@ const Product = ({ product }) => {
   <>
     <div className="product-item">
       <figure className="product-image">
-        <Image loader={myLoader} src={product.url} alt={product.name} width={250}
-          height={250} />
+        <Image loader={myLoader} src={product.url} alt={product.name} layout="fill" objectFit="cover" />
       </figure>
       <div className="product-item-info">
-        <h2>{product.name}</h2>
-        <span>{formatter.format(product.price)}</span>
-        <p>{product.description}</p>
+        <h2 className="product-name">{product.name}</h2>
+        <span className="product-price">{formatter.format(product.price)}</span>
+        <p className="product-description">{product.description}</p>
       </div>
-      { user ? 
-      <div className="product-button">
-            <Button onClick={() => deleteProduct(product.id)} type="button"> <i className="fas fa-trash" aria-hidden /> </Button>
+      <div className="product-footer">
+        { user ? (
+          <Button onClick={() => deleteProduct(product.id)} type="button">
+            <i className="fas fa-trash" aria-hidden /> Eliminar
+          </Button>
+        ) : (
+          <Link
+            href={whatsapp}
+            className="product-whatsapp-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-whatsapp" aria-hidden />
+            <span>Pedir por WhatsApp</span>
+          </Link>
+        )}
       </div>
-      
-      :
-          <div className="product-whatsapp">
-            <Link href={whatsapp}>
-              <a target="_blank" rel="noopener">
-                <i className="fab fa-whatsapp" aria-hidden />
-              </a>
-            </Link>
-          </div>
-      }
     </div>
     <style jsx>
       {`
         .product-item {
-          box-shadow: 10px 10px 15px rgba(39, 44, 49, 0.06),
-            -10px 10px 15px rgba(39, 44, 49, 0.03);
-          margin-bottom: 2rem;
-          border: none;
-          border-radius: 20px;
-          padding: 1rem;
-          border: 1px solid var(--color-valery);
-          color: var(--color-four);
-
-          transition: transform 500ms ease;
+          background: white;
+          border-radius: var(--radius-md, 16px);
+          overflow: hidden;
+          box-shadow: var(--shadow-md, 0 4px 24px rgba(100, 0, 153, 0.10));
+          border: 1px solid rgba(171, 62, 216, 0.15);
+          transition: transform 400ms ease, box-shadow 400ms ease;
+          display: flex;
+          flex-direction: column;
         }
 
         .product-item:hover {
-          transform: scale(1.03);
+          transform: translateY(-6px);
+          box-shadow: var(--shadow-lg, 0 12px 40px rgba(100, 0, 153, 0.18));
         }
 
         .product-image {
-          padding: 1rem;
-          display: flex;
-          justify-content: center;
+          position: relative;
+          height: 260px;
+          width: 100%;
+          overflow: hidden;
+          background: var(--color-white, #f2f2f2);
         }
 
         .product-item-info {
-          padding: 10px;
+          padding: 1.6rem;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 1rem;
+          gap: 0.8rem;
+          flex: 1;
         }
 
-        .product-item-info h2 {
+        .product-name {
           font-size: clamp(1.5rem, 2.5vw, 1.8rem);
-          font-weight: bold;
-          text-align: center;
+          font-weight: 700;
+          color: var(--color-five);
         }
 
-        .product-item-info span {
-          font-size: clamp(1.3rem, 2.5vw, 1.5rem);
-          font-weight: 200;
+        .product-price {
+          font-size: clamp(1.4rem, 2.5vw, 1.6rem);
+          font-weight: 800;
+          color: var(--color-terciario);
         }
 
-        .product-item-info span::before {
-          content: "Precio: $";
-        }
-
-        .product-item-info p {
-          font-size: clamp(1.4rem, 2.5vw, 1.7rem);
+        .product-description {
+          font-size: clamp(1.3rem, 2vw, 1.5rem);
           font-weight: 300;
-          text-align: justify;
+          color: #555;
+          line-height: 1.6;
+          flex: 1;
         }
 
-        .product-button {
+        .product-footer {
+          padding: 1.2rem 1.6rem;
+          border-top: 1px solid rgba(171, 62, 216, 0.10);
           display: flex;
           justify-content: center;
           align-items: center;
         }
 
-        .product-whatsapp {
+        .product-footer :global(.product-whatsapp-link) {
           display: flex;
-          justify-content: center;
           align-items: center;
-          
+          gap: 0.8rem;
+          color: var(--color-terciario);
+          text-decoration: none;
+          font-size: 1.5rem;
+          font-weight: 600;
+          transition: transform 0.25s ease, color 0.25s ease;
         }
 
-        .product-whatsapp  a {
-            color: var(--color-terciario);
-            font-size: clamp(1.4rem, 2.5vw, 3.6rem);
-            text-decoraton: none;
-
-            transition: transform 0.4s ease-in-out;
+        .product-footer :global(.product-whatsapp-link i) {
+          font-size: 2.2rem;
         }
 
-        .product-whatsapp a:hover, .product-whatsapp a:focus {
-            transform: translateY(-5px);
-            color: var(--color-secundary);
+        .product-footer :global(.product-whatsapp-link:hover) {
+          transform: translateY(-2px);
+          color: var(--color-secundary);
         }
-
       `}
     </style>
   </>

@@ -1,62 +1,52 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import initFirebase from '@firebase/firebase'
-import {
-    removeUserCookie,
-    setUserCookie,
-    getUserfromCookie,
-} from './userCookies'
-import { mapUserData } from './mapUserData'
-
-initFirebase()
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { getAuth, onIdTokenChanged, signOut } from 'firebase/auth';
+import app from './firebase';
+import { removeUserCookie, setUserCookie, getUserfromCookie } from './userCookies';
+import { mapUserData } from './mapUserData';
 
 const useUser = () => {
-    const [user, setUser] = useState()
-    const router = useRouter()
+    const [user, setUser] = useState();
+    const router = useRouter();
 
     const logout = async () => {
-        return firebase
-            .auth()
-            .signOut()
+        const auth = getAuth(app);
+        return signOut(auth)
             .then(() => {
-                // Sign-out successful.
-                router.push('/')
+                router.push('/');
             })
             .catch((e) => {
-                console.error(e)
-            })
-    }
+                console.error(e);
+            });
+    };
 
     useEffect(() => {
-        // Firebase updates the id token every hour, this
-        // makes sure the react state and the cookie are
-        // both kept up to date
-        const cancelAuthListener = firebase.auth().onIdTokenChanged((user) => {
-            if (user) {
-                const userData = mapUserData(user)
-                setUserCookie(userData)
-                setUser(userData)
-            } else {
-                removeUserCookie()
-                setUser()
-            }
-        })
+        const auth = getAuth(app);
 
-        const userFromCookie = getUserfromCookie()
+        const cancelAuthListener = onIdTokenChanged(auth, async (firebaseUser) => {
+            if (firebaseUser) {
+                const userData = await mapUserData(firebaseUser);
+                setUserCookie(userData);
+                setUser(userData);
+            } else {
+                removeUserCookie();
+                setUser();
+            }
+        });
+
+        const userFromCookie = getUserfromCookie();
         if (!userFromCookie) {
-            router.push('/')
-            return
+            router.push('/');
+            return;
         }
-        setUser(userFromCookie)
+        setUser(userFromCookie);
 
         return () => {
-            cancelAuthListener()
-        }
-    }, [])
+            cancelAuthListener();
+        };
+    }, []);
 
-    return { user, logout }
-}
+    return { user, logout };
+};
 
-export { useUser }
+export { useUser };

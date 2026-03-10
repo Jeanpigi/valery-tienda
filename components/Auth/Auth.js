@@ -1,54 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import initFirebase from '@firebase/firebase'
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
-import { setUserCookie } from '@firebase/userCookies'
-import { mapUserData } from '@firebase//mapUserData'
+import React, { useEffect, useState } from 'react';
+import {
+    getAuth,
+    EmailAuthProvider,
+    GoogleAuthProvider,
+} from 'firebase/auth';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { setUserCookie } from '@firebase/userCookies';
+import { mapUserData } from '@firebase/mapUserData';
+import app from '@firebase/firebase';
 
+const auth = getAuth(app);
 
-initFirebase()
-
-const firbaseAuthConfig = {
+const firebaseAuthConfig = {
     signInFlow: 'popup',
     signInOptions: [
         {
-            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            provider: EmailAuthProvider.PROVIDER_ID,
             requireDisplayName: true,
         },
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        GoogleAuthProvider.PROVIDER_ID,
     ],
     signInSuccessUrl: '/',
     credentialHelper: 'none',
     callbacks: {
         signInSuccessWithAuthResult: async ({ user }) => {
-            const userData = mapUserData(user)
-            setUserCookie(userData)
+            const userData = await mapUserData(user);
+            setUserCookie(userData);
         },
     },
-}
+};
 
 const FirebaseAuth = () => {
     const [renderAuth, setRenderAuth] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setRenderAuth(true)
+            setRenderAuth(true);
         }
-    }, [])
+    }, []);
 
     return (
         <div>
-            {
-                renderAuth ? (
-                    <StyledFirebaseAuth
-                        uiConfig={firbaseAuthConfig}
-                        firebaseAuth={firebase.auth()}
-                    />
-                ) : null
-            }
+            {renderAuth ? (
+                <StyledFirebaseAuth
+                    uiConfig={firebaseAuthConfig}
+                    firebaseAuth={auth}
+                />
+            ) : null}
         </div>
-    )
-}
+    );
+};
 
 export default FirebaseAuth;

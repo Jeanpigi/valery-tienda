@@ -3,56 +3,65 @@ import React from 'react';
 const Search = ({ search, searchInput, handleSearch }) => (
   <>
     <div className="search">
-      <div className="search_input">
+      <div className="search_wrapper">
+        <i className="fas fa-search search_icon_inner" aria-hidden />
         <input
           id="search"
           type="text"
           value={search}
           ref={searchInput}
           onChange={handleSearch}
-          placeholder="buscador de productos"
+          placeholder="Buscar productos..."
+          aria-label="Buscar productos"
         />
-      </div>
-      <div className="search_icon">
-        <i className="fas fa-search" aria-hidden/>
       </div>
     </div>
     <style jsx>
       {`
         .search {
-          display: grid;
-          grid-template-columns: 3.6fr 0.4fr;
-          padding: 3rem 1rem 5rem 2rem;
+          padding: 2.4rem 2rem 3.2rem;
+          display: flex;
+          justify-content: center;
         }
 
-        .search_input input {
-          padding: 1rem;
-          width: 100%;
-          border-radius: 4px;
-          border: 2px solid var(--color-four);
-          outline: none;
-          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .search_icon {
-          display: grid;
-          justify-items: center;
+        .search_wrapper {
+          display: flex;
           align-items: center;
-          background-color: var(--color-four);
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
+          width: 100%;
+          max-width: 560px;
+          background: white;
+          border: 2px solid var(--color-four);
+          border-radius: 50px;
+          overflow: hidden;
+          padding: 0 1.8rem;
+          box-shadow: 0 4px 20px rgba(100, 0, 153, 0.10);
+          transition: box-shadow 0.25s ease;
         }
 
-        @media screen and (min-width: 766px) {
-          .search {
-            grid-template-columns: 3fr 0.2fr;
-          }
+        .search_wrapper:focus-within {
+          box-shadow: 0 4px 24px rgba(100, 0, 153, 0.22);
         }
 
-        @media screen and (min-width: 1023px) {
-          .search {
-            grid-template-columns: 3.6fr 0.1fr;
-          }
+        .search_icon_inner {
+          color: var(--color-four);
+          font-size: 1.6rem;
+          flex-shrink: 0;
+          margin-right: 1.2rem;
+        }
+
+        .search_wrapper input {
+          flex: 1;
+          padding: 1.2rem 0;
+          border: none;
+          outline: none;
+          font-size: 1.5rem;
+          font-family: 'Open Sans', sans-serif;
+          background: transparent;
+          color: var(--color-five);
+        }
+
+        .search_wrapper input::placeholder {
+          color: #bbb;
         }
       `}
     </style>
